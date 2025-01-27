@@ -8,17 +8,46 @@ import {
        SignUpButton, 
        SignUpButtonText
 } from "./styles";
-import { Text } from "react-native";
+import { Alert, Text } from "react-native";
 
 
 export default function Login(){
   const [login, setLogin] = useState(true);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+ //Si
   function toogleLogin(){
     setLogin(!login);
+    setEmail('');
+    setPassword('');
+    setName('');
   }
 
+  function handleSignIn(){
+    //Validando os campos vazios de login
+  if(email === '' || password === ''){
+    console.log('PREENCHA TODOS OS CAMPOS')
+    return;
+  }
 
+  //Fazer o login do user
+
+  }
+
+  function handleSignUp(){
+    //Validando os campos vazios de cadastrar
+   if(name === '' || email === '' || password === ''){
+    console.log('PREENCHA TODOS OS CAMPOS')
+    return;
+   }
+
+   //Cadastrar user no app
+
+  }
+
+ //Se login for true entra no primeiro if "Tela de login"
   if(login){
     return(
       <Container>
@@ -27,15 +56,21 @@ export default function Login(){
       <Input
        placeholder="Digite seu e-mail"
        keyboardType="email-address"
+       value={email}
+       onChangeText={(item) => setEmail(item)}
+      
       />
  
       <Input
        placeholder="Digite sua senha"
        secureTextEntry={true}
+       value={password}
+       onChangeText={(item) => setPassword(item)}
+
       />
  
     
-      <Button>
+      <Button onPress={handleSignIn}>
         <ButtonText>Entrar</ButtonText>
       </Button>
  
@@ -53,21 +88,27 @@ export default function Login(){
 
      <Input
       placeholder="Digite seu nome"
+      value={name}
+      onChangeText={(item) => setName(item)}
      />
 
      <Input
       placeholder="Digite seu e-mail"
       keyboardType="email-address"
+      value={email}
+     onChangeText={(item) => setEmail(item)}
      />
 
      <Input
       placeholder="Digite sua senha"
       secureTextEntry={true}
+      value={password}
+      onChangeText={(item) => setPassword(item)}
      />
 
    
-     <Button>
-       <ButtonText>Entrar</ButtonText>
+     <Button onPress={handleSignUp}>
+       <ButtonText>Cadastrar</ButtonText>
      </Button>
 
      <SignUpButton onPress={toogleLogin}>
