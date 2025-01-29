@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useContext} from "react";
 import { 
     Container, 
        Titulo,
@@ -8,7 +8,8 @@ import {
        SignUpButton, 
        SignUpButtonText
 } from "./styles";
-import { Alert, Text } from "react-native";
+import {  Text } from "react-native";
+import { AuthContext } from "../../contexts/auth";
 
 
 export default function Login(){
@@ -16,6 +17,7 @@ export default function Login(){
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {LogarUser} = useContext(AuthContext);
 
  //Si
   function toogleLogin(){
@@ -36,7 +38,7 @@ export default function Login(){
 
   }
 
-  function handleSignUp(){
+  async function handleSignUp(){
     //Validando os campos vazios de cadastrar
    if(name === '' || email === '' || password === ''){
     console.log('PREENCHA TODOS OS CAMPOS')
@@ -44,6 +46,7 @@ export default function Login(){
    }
 
    //Cadastrar user no app
+   await LogarUser( email, password, name);
 
   }
 

@@ -7,7 +7,7 @@ import { AuthContext } from "../contexts/auth";
 
 export default function Routes(){
   
-  const {logado} = useContext(AuthContext);
+  const { logado } = useContext(AuthContext);
 
     const loading = false;
 

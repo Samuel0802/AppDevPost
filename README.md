@@ -24,5 +24,6 @@
 
 - npm install @react-native-firebase/storage: armazenamento do firebase
 
+###  Async Storage
 
-
+- npm install @react-native-async-storage/async-storage 
