@@ -8,7 +8,7 @@ import {
        SignUpButton, 
        SignUpButtonText
 } from "./styles";
-import {  Text } from "react-native";
+import {  Text , ActivityIndicator } from "react-native";
 import { AuthContext } from "../../contexts/auth";
 
 
@@ -17,7 +17,9 @@ export default function Login(){
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {LogarUser} = useContext(AuthContext);
+
+  const {LogarUser ,CadastrarUser ,loadingAuth} = useContext(AuthContext);
+
 
  //Si
   function toogleLogin(){
@@ -27,7 +29,7 @@ export default function Login(){
     setName('');
   }
 
-  function handleSignIn(){
+  async function handleSignIn(){
     //Validando os campos vazios de login
   if(email === '' || password === ''){
     console.log('PREENCHA TODOS OS CAMPOS')
@@ -35,6 +37,10 @@ export default function Login(){
   }
 
   //Fazer o login do user
+  await LogarUser(email, password);
+  setEmail('');
+  setPassword('');
+  
 
   }
 
@@ -46,7 +52,11 @@ export default function Login(){
    }
 
    //Cadastrar user no app
-   await LogarUser( email, password, name);
+   await CadastrarUser( email, password, name);
+   setEmail('');
+   setPassword('');
+   setName('');
+
 
   }
 
@@ -74,7 +84,14 @@ export default function Login(){
  
     
       <Button onPress={handleSignIn}>
-        <ButtonText>Entrar</ButtonText>
+
+         {/* validando o icon de loading */}
+        {loadingAuth ? (
+         <ActivityIndicator size={20} color="#ffff" />
+        ) : (
+          <ButtonText>Entrar</ButtonText>
+        )}
+       
       </Button>
  
       <SignUpButton onPress={toogleLogin}> 
@@ -111,7 +128,15 @@ export default function Login(){
 
    
      <Button onPress={handleSignUp}>
-       <ButtonText>Cadastrar</ButtonText>
+
+       {
+         loadingAuth ? (
+           <ActivityIndicator size={20} color="#ffff" />
+         ) : (
+          <ButtonText>Cadastrar</ButtonText>
+         )
+       }
+
      </Button>
 
      <SignUpButton onPress={toogleLogin}>
