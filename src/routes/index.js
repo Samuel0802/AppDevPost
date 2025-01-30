@@ -7,9 +7,8 @@ import { AuthContext } from "../contexts/auth";
 
 export default function Routes(){
   
-  const { logado } = useContext(AuthContext);
+  const { logado, loading } = useContext(AuthContext);
 
-    const loading = false;
 
     if(loading){
         <View style={{

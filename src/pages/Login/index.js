@@ -18,7 +18,7 @@ export default function Login(){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const {LogarUser ,CadastrarUser ,loadingAuth} = useContext(AuthContext);
+  const {LogarUser ,CadastrarUser , loadingAuth} = useContext(AuthContext);
 
 
  //Si
@@ -29,6 +29,7 @@ export default function Login(){
     setName('');
   }
 
+  //Função de login para validação e login
   async function handleSignIn(){
     //Validando os campos vazios de login
   if(email === '' || password === ''){
@@ -44,6 +45,7 @@ export default function Login(){
 
   }
 
+  // Validação de cadastrar
   async function handleSignUp(){
     //Validando os campos vazios de cadastrar
    if(name === '' || email === '' || password === ''){
@@ -53,9 +55,11 @@ export default function Login(){
 
    //Cadastrar user no app
    await CadastrarUser( email, password, name);
+
    setEmail('');
    setPassword('');
    setName('');
+
 
 
   }
