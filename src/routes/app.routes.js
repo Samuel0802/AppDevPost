@@ -69,6 +69,7 @@ export default function AppRoutes() {
 
             }}
         >
+            {/* Configurando home como uma stack */}
             <Tab.Screen
                 name="HomeTab"
                 component={StackRoutes}
