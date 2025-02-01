@@ -13,7 +13,7 @@ function AuthProvider({ children }) {
   //caso tenha algo no user = vai receber como true senão false
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [loadingAuth, setLoadingAuth] = useState(true);
+  const [loadingAuth, setLoadingAuth] = useState(false);
 
   //buscando do AsyncStorage
   useEffect(() => {
