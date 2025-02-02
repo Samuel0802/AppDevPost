@@ -128,7 +128,7 @@ function AuthProvider({ children }) {
 
   return (
     //AuthContext.Provider: é o componente que fornece os valores do contexto para os componentes filhos.
-    <AuthContext.Provider value={{ logado: !!user, CadastrarUser, LogarUser, signOut, loadingAuth, loading }}>
+    <AuthContext.Provider value={{ logado: !!user, CadastrarUser, LogarUser, signOut, loadingAuth, loading, user }}>
       {children}
     </AuthContext.Provider>
   );

@@ -27,3 +27,17 @@
 ###  Async Storage
 
 - npm install @react-native-async-storage/async-storage 
+
+
+### O que foi Usado? 
+
+- Organização nas pastas
+- Styled components
+- Vector Icons 
+- Navigation Stack
+- Navigation Tab
+- Firebase (auth, firestore, storage)
+- Async Storage
+- Rotas de navegação    
+- Contexts
+- Hooks
