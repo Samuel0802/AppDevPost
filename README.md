@@ -41,3 +41,10 @@
 - Rotas de navegação    
 - Contexts
 - Hooks
+
+
+### Formatando uma data
+
+- https://date-fns.org/docs/Getting-Started
+
+-npm install date-fns

@@ -34,6 +34,7 @@ export const ConteudoView = styled.View``;
 
 export const Content = styled.Text`
 color: #353840;
+margin: 4px 0;
 
 `;
 

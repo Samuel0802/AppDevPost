@@ -78,12 +78,15 @@ export default function Home() {
         ) : (
 
           <ListPosts
+            showVerticalScrollIndicator={false}
             data={posts}
             renderItem={({ item }) => (
+
               <PostList 
                data={item}
-                userId={user?.uid}
+                userId={user?.uid} //Buscar User que esta logado da context->auth
                />
+
             )}
           />
         )
