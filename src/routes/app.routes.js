@@ -2,7 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Feather from 'react-native-vector-icons/Feather';
-import Home from "../pages/Home";
+import Home from "../pages/Home/";
 import Profile from "../pages/Profile";
 import Search from "../pages/Search";
 import NewPost from "../pages/NewPost";
@@ -22,6 +22,8 @@ function StackRoutes() {
                     headerShown: false,
                 }}
             />
+
+            
 
             <Stack.Screen
                 name="NewPost"
@@ -78,7 +80,7 @@ export default function AppRoutes() {
                         return <Feather name="home" size={size} color={color} />
                     }
                 }}
-            />
+            /> 
 
             <Tab.Screen
                 name="Search"

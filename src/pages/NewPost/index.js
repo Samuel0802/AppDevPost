@@ -50,8 +50,8 @@ export default function NewPost() {
     .add({ //.add : gerando um id aleatorio 
       created: new Date(),
       conteudo: post,
-      autor: user?.nome,
-      userId: user?.uid,
+      autor: user?.nome,// user logado
+      userId: user?.uid, //id logado
       like: 0,
       avatarUrl,
     })

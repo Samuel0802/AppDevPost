@@ -69,6 +69,7 @@ export default function Login(){
     return(
       <Container>
       <Titulo>Dev<Text style={{color: "#E52246"}}>Post</Text></Titulo>
+
  
       <Input
        placeholder="Digite seu e-mail"
